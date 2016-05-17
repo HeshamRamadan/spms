@@ -1,0 +1,40 @@
+models and migaration commands
+1- Models:
+-------------
+1.User
+2.Developer
+3.Tester
+4.Manager
+5.Project
+6.Task
+7.Release
+8.Diagrame
+9.Methodlogy
+10.Issue
+-------------
+2-Tables
+-------------
+1.users
+2.developers
+3.testers
+4.managers
+5.projects
+6.tasks
+7.releases
+8.diagrames
+9.methodlogy
+10.issues
+-------------
+Tables and Migrations:
+----------------------
+php artisan make:model User -m
+php artisan make:model Developer -m
+php artisan make:model Tester -m
+php artisan make:model Manager -m
+php artisan make:model Project -m
+php artisan make:model Task -m
+php artisan make:model Release -m
+php artisan make:model Diagrame -m
+php artisan make:model Mehtodology -m
+php artisan make:model Issue -m
+
