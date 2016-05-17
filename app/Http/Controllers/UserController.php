@@ -31,19 +31,20 @@ public function getSignInPage(){
 	{	
 		
 		$this->validate($request, [
-			'email' =>'required|email',
+			'email' =>'required|email|exists:users,email',
 			'password' => 'required'
 			]);
 		if(Auth::attempt(['email'=>$request['email'],'password'=>$request['password'] ]))
 		{
 			return redirect()->route('dashboard');
 		}
-		return redirect()->back();
+		return redirect()->back() ;
 	}
 
 	public function getLogout()
 	{
 		Auth::logout();
+		Cache::flush();
 		return redirect()->route('signinpage');
 	}
 

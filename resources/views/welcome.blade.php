@@ -20,6 +20,7 @@
                 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                     
                     <input placeholder="E-mail" class="form-control" type="text" id="email" name="email" value="{{ old('email') }}" autofocus>
+                  
                   @if ($errors->has('email'))
                        <span class="help-block">
                           <strong>{{ $errors->first('email') }}</strong>
@@ -28,6 +29,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('password') ? 'has-error' :''}}">
                     <input placeholder="Password" class="form-control" type="password" id="password" name="password" value="{{ old('password') }}" >
+           
                     @if ($errors->has('password'))
                           <span class="help-block">
                                  <strong>{{ $errors->first('password') }}</strong>
