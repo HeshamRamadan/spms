@@ -138,8 +138,9 @@ Route::group(['middleware' => ['admin-g']], function () {
 
 //testing routes
 Route::get('/test', function (){
-	$developer =Developer::all();
-	return View::make('/test/articles')->with('developer', $developer);
+	$developers = Developer::all();
+	
+	return View('/test/articles',['developers' => $developers]);
 });
 Route::get('/profile/{username}',function($username){
 	

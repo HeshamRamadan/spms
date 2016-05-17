@@ -2,9 +2,11 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
+class User  extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -38,7 +40,10 @@ class User extends Authenticatable
    public function articles(){
    	return $this->hasMany('App\Article');
    }
-   
+
+   public function developers(){
+   	return $this->hasMany('App\Developer');
+   }
    
    
 }
