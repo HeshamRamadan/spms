@@ -1,0 +1,26 @@
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `job_type`, `remember_token`, `created_at`, `updated_at`) VALUES
+(4, 'Admin', 'a@a.a', '$2y$10$oPJN2CpnhpVjAMRnRQzT.uF4u3GJrkeoa55beO.nyCrEinioJ.enO', '01000717601', 1, 'D5PCb7wUXqzn3j65xxlAwdVb89yOJYZOqcWFBnkp3zOZJAEpycVYnXIKnIPg', '2016-05-10 09:50:06', '2016-05-16 20:27:24'),
+(5, 'ProjectManager', 'p@p.p', '$2y$10$IF1HopotzYVVwuzNXTFpB.SyGPHX6mOoefpyGKRpbt3rVLGPwmFDy', '010000000', 2, NULL, '2016-05-10 09:51:14', '2016-05-10 09:51:14'),
+(6, 'Developer', 'd@d.d', '$2y$10$9lHVjS8Y/Ja6P8PBUc.y0eDF0OWjutzNB0nyau2zORauLXZpaCQsi', '0100111111', 3, NULL, '2016-05-10 09:52:31', '2016-05-10 09:52:31'),
+(7, 'Tester', 't@t.t', '$2y$10$fMblODJZQ7hnDrBh6zk9LekK8FwGkhoGW1DOG2oa5bfKETx7oc3ZO', '011125458', 4, 'VgAISWdrG3EhjuliDwuX4M4c4p6UqgT0xZDC3XVf13DLSDKfSM5ugTb2IZaR', '2016-05-10 09:53:08', '2016-05-10 11:30:09'),
+(8, 'Alex', 'alex@gmail.com', '$2y$10$KgGUTaTJGYrUX6U646NJwOLMWFxRbokTivxVo4MTwnFSPlwR9E1eC', '011', 1, 'sLEtkDWQmkoM8pltYdF1zUl9wGqxNppStVoW7dS00yf5Jmt82SsWCDQNxJro', '2016-05-15 23:09:50', '2016-05-17 09:51:42'),
+(9, 'imran', 'imran@gmail.com', '$2y$10$xdsazL2jWurr45zjEWWRzOg.gIgoSAs8rzcDAxcyvxv1CqntxX2IO', '010', 2, NULL, '2016-05-15 23:10:16', '2016-05-15 23:10:16'),
+(10, 'Tamer', 'tamer@gmail.com', '$2y$10$4f8aqvR212KdIa8mV3tAEO7Va2KxUAGJC2xq19cdd1S688nQll/Cm', '018', 3, NULL, '2016-05-15 23:10:49', '2016-05-15 23:10:49'),
+(11, 'Ali', 'ali@gmail.com', '$2y$10$VwhBJD9ApkoAHPiPAtTlK.Et4Yky5PCgdvAqJXxlGnBMzjabkLyKK', '020', 4, NULL, '2016-05-15 23:11:33', '2016-05-15 23:11:33'),
+(12, 'Hussian', 'hussain@gmail.com', '$2y$10$ikEM9ZDv/Dz7y1HQoDBZw.XSjl8HBNmr44RWpqpGT3tvdjE0R318.', '010', 2, NULL, '2016-05-16 14:13:32', '2016-05-16 14:13:32'),
+(13, 'yaser', 'yaser@gmail.com', '$2y$10$VMiKY7yWrer5iRzoWJ0vz.U1mWi.wEMgSHP7jsfg92SWRbVrGGO9m', '0111', 3, NULL, '2016-05-16 14:18:29', '2016-05-16 14:18:29'),
+(14, 'yasin', 'yasin@gmail.com', '$2y$10$eRsnvEKpkeRLFXQgbl0S.OldR6T43SrTMUMClBKQPovJ16INstYm6', '01111', 3, NULL, '2016-05-16 14:45:49', '2016-05-16 14:45:49'),
+(15, 'Terry', 'terry@gmail.com', '$2y$10$A1sgLXtK/oYYHXKL3XOP7.g3bL3L65S05QIXiFH1dcWokMpZH/Y/O', '02131', 4, NULL, '2016-05-16 21:23:53', '2016-05-16 21:23:53'),
+(16, 'mahmoud', 'mahmoud@gmail.com', '$2y$10$jqHrPtd7VcxQxf4mqQPOM.UyUfAV4eG/BYdnC0V4bTkE5lFzP.bLK', '0445445445', 3, NULL, '2016-05-17 09:39:28', '2016-05-17 09:39:28');
+
+
+INSERT INTO `developers` (`user_id`, `prog_langs`, `created_at`, `updated_at`) VALUES
+(13, 0, '2016-05-16 14:18:29', '2016-05-16 14:18:29'),
+(14, 0, '2016-05-16 14:45:49', '2016-05-16 14:45:49'),
+(16, 0, '2016-05-17 09:39:28', '2016-05-17 09:39:28');
+
+INSERT INTO `managers` (`user_id`, `xp_id`, `created_at`, `updated_at`) VALUES
+(12, '', '2016-05-16 14:13:32', '2016-05-16 14:13:32');
+
+INSERT INTO `testers` (`user_id`, `years_xp`, `created_at`, `updated_at`) VALUES
+(15, 0, '2016-05-16 21:23:53', '2016-05-16 21:23:53');

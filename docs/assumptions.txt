@@ -1,0 +1,7 @@
+1. user
+--------
+a.login availble on home page '/'
+b.login using user name and password
+c.admin will regist every single user
+d.registation with user name, email, password, job type all required, phone no is an option
+e.admin user will be added through phpmyadmin with user name = admin and password = admin
