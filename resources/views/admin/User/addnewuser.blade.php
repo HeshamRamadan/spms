@@ -48,22 +48,57 @@
                        </span>
                  @endif               
                 </div>
-                <div class="form-group {{ $errors->has('job_type')?'has-error':'' }}">
+                <div class="form-group {{ $errors->has('job_type')?'has-error':'' }}" id="www">
                     <label for="job_type">Job Type</label><br>	  
-				   <select name="job_type" class="form-control">
-				   		<option value="" selected ></option>	
-					    <option value="1">Admin</option>
-					    <option value="2">Project Manager</option>
-					    <option value="3">Developer</option>
-					    <option value="4">tester</option>
+				   <select name="job_type" class="form-control" path="www">
+				   		<option value="-" selected id="ad"></option>	
+					    <option value="1" id="ad">Admin</option>
+					    <option value="2" id="pm">Project Manager</option>
+					    <option value="3" id="de">Developer</option>
+					    <option value="4" id="te">tester</option>
 				  	</select>
 				 @if ($errors->has('job_type'))
                        <span class="help-block">
                           <strong>{{ $errors->first('job_type') }}</strong>
                        </span>
-                 @endif 
+                 @endif
 				  	     
                 </div>
+                
+
+                <div  class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="p">
+                    <label for="phone">Experiances</label>
+                    <input class="form-control" type="text" id="manager_experiances" name="manager_experiances" >
+				 @if ($errors->has('manager_experiances'))
+                       <span class="help-block">
+                          <strong>{{ $errors->first('manager_experiances') }}</strong>
+                       </span>
+                 @endif                 
+                </div>
+                
+                 <div class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="d">
+                    <label for="phone">Programming Languages</label>
+                    <input class="form-control" type="text" id="prog_lang" name="prog_lang" >
+				 @if ($errors->has('prog_lang'))
+                       <span class="help-block">
+                          <strong>{{ $errors->first('prog_lang') }}</strong>
+                       </span>
+                 @endif                 
+                </div>
+                
+                  <div class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="t">
+                    <label for="phone">Experiances</label>
+                    <input class="form-control" type="text" id="tester_experiances" name="tester_experiances" >
+				 @if ($errors->has('tester_experiances'))
+                       <span class="help-block">
+                          <strong>{{ $errors->first('tester_experiances') }}</strong>
+                       </span>
+                 @endif                 
+                </div>
+                
+     
+                
+                
                 <div class="form-group {{ $errors->has('phone')?'has-error':'' }}">
                     <label for="phone">Phone</label>
                     <input class="form-control" type="text" id="phone" name="phone" >

@@ -44,7 +44,7 @@ public function getSignInPage(){
 	public function getLogout()
 	{
 		Auth::logout();
-		Cache::flush();
+		
 		return redirect()->route('signinpage');
 	}
 
