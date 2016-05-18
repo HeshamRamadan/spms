@@ -12,4 +12,8 @@ class Release extends Model
     public function tasks(){
     	return $this->hasMany('App\Task');
     }
+    public function issues(){
+    	return $this->hasMany('App\Issue');
+    }
+    
 }

@@ -1,17 +1,17 @@
 
-	@foreach($tasks as $task)
+	@foreach($issues as $issue)
 	|
-		{{$task->id}}
+		issue id:  {{$issue->id}}
 		|
-		{{$task->developer->user->name}}
+		issue dev: {{$issue->developer->user->name}}
 		|
-		{{$task->release->id}}
+		issue release : {{$issue->release->id}}
 		|
-		{{$task->release->project->name}}
+		issue project name: {{$issue->release->project->name}}
 		|
-		{{$task->release->project->manager->user->name}}
+		issue tester: {{$issue->tester->user->name}}
 		|
-		{{$task->release->project->mehtodology->name}}
+
 	|
 	<br>
 	@endforeach
