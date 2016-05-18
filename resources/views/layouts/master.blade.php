@@ -20,6 +20,7 @@
  		
  	
 	<script src="{{URL::to('src/js/jquery-1.11.1.min.js')}}"></script>
+	<script src="{{URL::to('src/js/jquery.min.js')}}"></script>
 	<script src="{{URL::to('src/js/bootstrap.min.js')}}"></script>
 	<script src="{{URL::to('src/js/chart.min.js')}}"></script>
 	<script src="{{URL::to('src/js/chart-data.js')}}"></script>
@@ -46,6 +47,8 @@
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
 		
+		//------------------------------------------
+		
 		
 	</script>	
 <script type="text/javascript">
@@ -62,7 +65,19 @@
 	   
 	  });
 	  
-</script>	
-</body>
+</script>
+<script>
+$(function() {
+	  $('#www select').on('change', function() {
+		  console.log('llllllllll');
+	    var value = this.value;
+	    $('#p').toggle(value == '2');
+	    $('#d').toggle(value == 3);
+	    $('#t').toggle(value == 4);
+	  }).change();
+	});
+</script>
+
+				 </body>
 
 </html>
