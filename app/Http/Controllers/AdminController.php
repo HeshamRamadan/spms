@@ -30,7 +30,6 @@ class AdminController extends Controller
 			$password = bcrypt($request['passwd']);
 			$job_type = $request['job_type'];
 			$phone 	  = $request['phone'];
-			
 			$xp		  = $request['manager_experiances'];
 			$prog_lang = $request['prog_lang'];
 			$tester_experiances = $request['tester_experiances'];

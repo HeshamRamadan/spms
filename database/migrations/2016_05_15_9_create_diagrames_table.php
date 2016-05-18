@@ -17,8 +17,8 @@ class CreateDiagramesTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('file_path');
-            $table->integer('method_id')->unsigned();
-            $table->foreign('method_id')->references('id')->on('mehtodologies');
+            $table->integer('mehtodology_id')->unsigned();
+            $table->foreign('mehtodology_id')->references('id')->on('mehtodologies');
            	$table->timestamps();
         });
     }

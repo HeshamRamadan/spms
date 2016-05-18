@@ -19,9 +19,9 @@ class CreateIssuesTable extends Migration
             $table->integer('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
             $table->integer('assigned_to')->unsigned();
-            $table->foreign('assigned_to')->references('user_id')->on('developers');
+            $table->foreign('assigned_to')->references('id')->on('developers');
             $table->integer('tested_by')->unsigned();
-            $table->foreign('tested_by')->references('user_id')->on('testers');
+            $table->foreign('tested_by')->references('id')->on('testers');
             $table->integer('rel_id')->unsigned();
             $table->foreign('rel_id')->references('id')->on('releases');
             $table->integer('progress');

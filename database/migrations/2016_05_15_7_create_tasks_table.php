@@ -20,10 +20,10 @@ class CreateTasksTable extends Migration
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->integer('status');
-			$table->integer('assigned_to')->unsigned();
-        	$table->foreign('assigned_to')->references('user_id')->on('developers');
-        	$table->integer('rel_id')->unsigned();
-        	$table->foreign('rel_id')->references('id')->on('releases');
+			$table->integer('developer_id')->unsigned();
+        	$table->foreign('developer_id')->references('id')->on('developers');
+        	$table->integer('release_id')->unsigned();
+        	$table->foreign('release_id')->references('id')->on('releases');
         	$table->timestamps();
             
         });

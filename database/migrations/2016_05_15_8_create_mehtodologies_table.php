@@ -16,9 +16,10 @@ class CreateMehtodologiesTable extends Migration
         	$table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->string('name');
+            $table->text('desc');
             $table->timestamps();
-            $table->integer('p_id')->unsigned();
-            $table->foreign('p_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->integer('project_id')->unsigned();
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             
             
             

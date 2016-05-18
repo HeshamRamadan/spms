@@ -6,7 +6,9 @@ use App\Article;
 use App\Manager;
 use App\Developer;
 use App\Tester;
-
+use App\Project;
+use App\Release;
+use App\Task;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -140,10 +142,10 @@ Route::group(['middleware' => ['admin-g']], function () {
 
 //testing routes
 Route::get('/test', function (){
-	$developers = Developer::all();
-	$managers = Manager::all();
-	$testers = Tester::All();
-	return View('/test/articles',['testers' => $testers]);
+	$tasks = Task::all();
+	
+	
+	return View('/test/articles',['tasks' => $tasks]);
 });
 Route::get('/profile/{username}',function($username){
 	

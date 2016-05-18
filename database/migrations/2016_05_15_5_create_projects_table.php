@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->string('requirements');
             $table->integer('releases');
             $table->integer('manager_id')->unsigned();
-            $table->foreign('manager_id')->references('user_id')->on('managers');
+            $table->foreign('manager_id')->references('id')->on('managers');
             $table->timestamps();
         });
     }
