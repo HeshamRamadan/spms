@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests;
+
 use App\Developer;
 use App\Manager;
 use App\Tester;
@@ -15,7 +14,7 @@ class AdminController extends Controller
 	
 	public function postSignUp(Request $request)
 		{
-			
+			//validations
 			$this->validate($request, [
 	            'name' => 'required|max:100',
 				'email' => 'required|email|unique:users',
@@ -24,7 +23,7 @@ class AdminController extends Controller
 				'phone' => 'required',	
 				
 	        ]);
-	
+			//taking variable data from request
 	
 			$name     = $request['name'];
 			$email    = $request['email'];
@@ -32,13 +31,13 @@ class AdminController extends Controller
 			$job_type = $request['job_type'];
 			$phone 	  = $request['phone'];
 			
-			$xp		  = $request['xp'];
-			$prog_langs = $request['prog_langs'];
+			$xp		  = $request['manager_experiances'];
+			$prog_lang = $request['prog_lang'];
+			$tester_experiances = $request['tester_experiances'];
 			
+			//saveing into database
 			
-			
-			$user            = New user;
-
+			$user = New User;
 			$user->name      = $name;
 			$user->email     = $email;
 			$user->password  = $password;
@@ -57,13 +56,13 @@ class AdminController extends Controller
 				case 3:
 					$developer		 = new Developer;
 					$developer->user_id = $user->id;
-					
+					$developer->prog_langs = $prog_lang;
 					$developer->save();
 					break;
 				case 4:
 					$tester		 = new Tester;
 					$tester->user_id = $user->id;
-					
+					$tester->years_xp = $tester_experiances;
 					$tester->save();
 					break;
 			

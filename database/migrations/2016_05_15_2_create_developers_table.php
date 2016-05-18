@@ -15,7 +15,7 @@ class CreateDevelopersTable extends Migration
         Schema::create('developers', function (Blueprint $table) {
         	$table->engine = 'InnoDB';
         	$table->integer('user_id')->unsigned();
-        	$table->string('prog_lang');
+        	$table->string('prog_langs');
             $table->timestamps();
             
             

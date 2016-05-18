@@ -14,13 +14,7 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
-public function getWelcome(){
-	if (!Auth::check()){
-		return redirect()->route('signinpage');
-	}else{
-		return redirect()->route('dashboard');
-	}
-}
+
 
 public function getSignInPage(){
 	return view('welcome');
