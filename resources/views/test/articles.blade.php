@@ -1,6 +1,11 @@
-@foreach($developers as $developer)
-	{{$developer->user_id}}
-	----
-	{{$developer->user->name}}
-	<br>
+
+<hr>
+@foreach($testers as $testers)
+	|
+	{{ $testers->user_id }}
+	-
+	{{ $testers->user->name }}
+	|
+
 @endforeach
+<hr>

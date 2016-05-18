@@ -2,8 +2,10 @@
 
 use App\Article;
 //fortesting
-use App\User;
+
+use App\Manager;
 use App\Developer;
+use App\Tester;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,8 +141,9 @@ Route::group(['middleware' => ['admin-g']], function () {
 //testing routes
 Route::get('/test', function (){
 	$developers = Developer::all();
-	
-	return View('/test/articles',['developers' => $developers]);
+	$managers = Manager::all();
+	$testers = Tester::All();
+	return View('/test/articles',['testers' => $testers]);
 });
 Route::get('/profile/{username}',function($username){
 	
