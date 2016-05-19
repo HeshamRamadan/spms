@@ -72,7 +72,7 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	Route::get('/dashboard/edituser',[
 			'uses'=>'AdminController@getEditUser',
-			'as'=>'edituser',
+			'as'=>'user.edit',
 	
 	]);
 	Route::get('/delete-user/{user_id}', [
@@ -172,6 +172,9 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	
 	
+	
+	
+
 });
 
 
