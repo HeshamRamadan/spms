@@ -13,6 +13,6 @@
 		|
 		{{$task->release->project->mehtodology->name}}
 	|
+	
 	<br>
 	@endforeach
-

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\Project;
 use App\Developer;
 use App\Manager;
 use App\Tester;
+use App\Task;
+use App\Release;
 
 class AdminController extends Controller
 {
@@ -78,7 +80,8 @@ class AdminController extends Controller
 		
 		public function getEditUser()
 		{
-			return view('admin/User/edituser');
+			$users = User::all();
+			return view('admin/User/edituser',['users' => $users]);
 		}
 		
 		public function getAddProject()
@@ -89,7 +92,21 @@ class AdminController extends Controller
 		
 		public function getViewProject()
 		{
-			return view('admin/Project/viewproject');
+			$projects = Project::all();
+			return view('admin/Project/viewproject' , ['projects' => $projects]);
+		}
+		
+		public function getProjectData(Request $request)
+		{
+			
+			$value = $request['search'];
+			
+			$project = Project::where('name', $value)->first();
+			if(! $project){
+				return redirect()->back(); 
+			}
+			return view('admin/Project/project-data' , ['project' => $project]);
+			
 		}
 		
 		public function getEditProject()
@@ -108,8 +125,23 @@ class AdminController extends Controller
 		}
 		
 		public function getViewTask()
+		{	
+			$tasks = Task::all();
+			return view('admin/Task/viewtask' , ['tasks' => $tasks]);
+		
+		}
+		
+		public function getTaskdata(Request $request)
 		{
-			return view('admin/Task/viewtask');
+				
+			$value = $request['search'];
+				
+			$task = Task::where('id', $value)->first();
+			if(! $task){
+				return redirect()->back();
+			}
+			return view('admin/Task/task-data' , ['task' => $task]);
+				
 		}
 		
 		public function getEditTask()
@@ -131,8 +163,27 @@ class AdminController extends Controller
 		}
 		public function getViewIssue()
 		{
-			return view('admin/Issue/viewissue');
+			$issues = Issue::all();
+			
+			
+			return view('admin/Issue/viewissue', ['issues' => $issues ]);
+		
 		}
+		
+			
+		public function getIssueData(Request $request)
+		{
+		
+			$value = $request['search'];
+		
+			$issue = Issue::where('id', $value)->first();
+			if(! $issue){
+				return redirect()->back();
+			}
+			return view('admin/Issue/issue-data' , ['issue' => $issue]);
+		
+		}
+		
 		
 		public function getEditIssue()
 		{

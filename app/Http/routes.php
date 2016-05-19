@@ -84,6 +84,13 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'viewproject',
 	
 	]);
+	Route::post('/dashboard/projectdata',[
+			'uses'=>'AdminController@getProjectData',
+			'as'=>'projectdata',
+	
+	]);
+	
+
 	Route::get('/dashboard/editproject',[
 			'uses'=>'AdminController@getEditProject',
 			'as'=>'editproject',
@@ -97,11 +104,21 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'addtask',
 	
 	]);
+	
 	Route::get('/dashboard/viewtask',[
 			'uses'=>'AdminController@getViewTask',
 			'as'=>'viewtask',
 	
 	]);
+	
+	Route::post('/dashboard/taskdata',[
+			'uses'=>'AdminController@getTaskData',
+			'as'=>'taskdata',
+	
+	]);
+	
+	
+	
 	Route::get('/dashboard/edittask',[
 			'uses'=>'AdminController@getEditTask',
 			'as'=>'edittask',
@@ -143,10 +160,10 @@ Route::group(['middleware' => ['admin-g']], function () {
 //testing routes
 Route::get('/test', function (){
 	$tasks = Task::all();
-	
-	
 	return View('/test/articles',['tasks' => $tasks]);
 });
+
+	
 Route::get('/profile/{username}',function($username){
 	
 		$user = User::where('name', $username)->first();

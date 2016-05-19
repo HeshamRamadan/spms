@@ -4,9 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>@yield('title')</title>
-	
-	<link href="{{URL::to('src/css/bootstrap.min.css')}}" rel="stylesheet">
-	
+	<link href="{{URL::to('src/css/bootstrap.css')}}" rel="stylesheet">
 	<link href="{{URL::to('src/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
 	<link href="{{URL::to('src/css/datepicker3.css')}}" rel="stylesheet">
 	<link href="{{URL::to('src/css/styles.css')}}" rel="stylesheet">
@@ -77,6 +75,7 @@ $(function() {
 	  }).change();
 	});
 </script>
+//-----------------------------------------
 
 				 </body>
 
