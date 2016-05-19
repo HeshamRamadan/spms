@@ -9,5 +9,6 @@ use App\Http\Requests;
 class ManagerController extends Controller
 {
     //
+    
 
 }

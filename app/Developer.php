@@ -16,5 +16,7 @@ class Developer extends Model
     	return $this->hasMany('App\Task');
     	 
     }
-    
+    public function issues(){
+    	return $this->hasMany('App\Issue');
+    }
 }

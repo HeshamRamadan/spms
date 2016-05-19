@@ -38,10 +38,6 @@ class User  extends Authenticatable
     	}
     	*/
     use \Illuminate\Auth\Authenticatable;
-   public function articles(){
-   	return $this->hasMany('App\Article');
-   }
-
    public function mangers(){
    	return $this->hasMany('App\Manager');
    }
@@ -50,6 +46,9 @@ class User  extends Authenticatable
    }
    public function testers(){
    	return $this->hasMany('App\Tester');
+   }
+   public function issues(){
+   	return $this->hasMany('App\Issue');
    }
    
    

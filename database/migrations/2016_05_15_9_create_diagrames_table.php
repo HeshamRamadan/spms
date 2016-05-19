@@ -16,9 +16,10 @@ class CreateDiagramesTable extends Migration
         	$table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->string('name');
+            $table->text('desc');
             $table->string('file_path');
-            $table->integer('mehtodology_id')->unsigned();
-            $table->foreign('mehtodology_id')->references('id')->on('mehtodologies');
+            $table->integer('methodology_id')->unsigned();
+            $table->foreign('methodology_id')->references('id')->on('methodologies');
            	$table->timestamps();
         });
     }

@@ -9,6 +9,7 @@ use App\Tester;
 use App\Project;
 use App\Release;
 use App\Task;
+use App\Issue;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -77,6 +78,11 @@ Route::group(['middleware' => ['admin-g']], function () {
 	Route::get('/dashboard/addproject',[
 			'uses'=>'AdminController@getAddProject',
 			'as'=>'addproject',
+	
+	]);
+	Route::post('/dashboard/newproject',[
+			'uses'=>'AdminController@postNewProject',
+			'as'=>'newproject',
 	
 	]);
 	Route::get('/dashboard/viewproject',[
@@ -159,8 +165,10 @@ Route::group(['middleware' => ['admin-g']], function () {
 
 //testing routes
 Route::get('/test', function (){
-	$tasks = Task::all();
-	return View('/test/articles',['tasks' => $tasks]);
+
+	$issues = Issue::all();
+	return View('/test/articles',['issues' => $issues]);
+
 });
 
 	

@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group {{ $errors->has('email')?'has-error':'' }}">
                     <label for="email">E-mail</label>
-                    <input class="form-control" type="text" id="email" name="email" value="" >
+                    <input class="form-control" type="text" id="email" name="email" value="{{ old('email') }}" >
                   @if ($errors->has('email'))
                        <span class="help-block">
                           <strong>{{ $errors->first('email') }}</strong>
@@ -68,7 +68,7 @@
 
                 <div  class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="p">
                     <label for="phone">Experiances</label>
-                    <input class="form-control" type="text" id="manager_experiances" name="manager_experiances" >
+                    <input class="form-control" type="text" id="manager_experiances" name="manager_experiances" value="{{ old('email') }}">
 				 @if ($errors->has('manager_experiances'))
                        <span class="help-block">
                           <strong>{{ $errors->first('manager_experiances') }}</strong>
@@ -78,7 +78,7 @@
                 
                  <div class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="d">
                     <label for="phone">Programming Languages</label>
-                    <input class="form-control" type="text" id="prog_lang" name="prog_lang" >
+                    <input class="form-control" type="text" id="prog_lang" name="prog_lang" value="{{ old('email') }}">
 				 @if ($errors->has('prog_lang'))
                        <span class="help-block">
                           <strong>{{ $errors->first('prog_lang') }}</strong>
@@ -88,7 +88,7 @@
                 
                   <div class="form-group {{ $errors->has('phone')?'has-error':'' }}" id="t">
                     <label for="phone">Experiances</label>
-                    <input class="form-control" type="text" id="tester_experiances" name="tester_experiances" >
+                    <input class="form-control" type="text" id="tester_experiances" name="tester_experiances"  value="{{ old('email') }}">
 				 @if ($errors->has('tester_experiances'))
                        <span class="help-block">
                           <strong>{{ $errors->first('tester_experiances') }}</strong>
@@ -101,7 +101,7 @@
                 
                 <div class="form-group {{ $errors->has('phone')?'has-error':'' }}">
                     <label for="phone">Phone</label>
-                    <input class="form-control" type="text" id="phone" name="phone" >
+                    <input class="form-control" type="text" id="phone" name="phone" value="{{ old('email') }}">
 				 @if ($errors->has('phone'))
                        <span class="help-block">
                           <strong>{{ $errors->first('phone') }}</strong>

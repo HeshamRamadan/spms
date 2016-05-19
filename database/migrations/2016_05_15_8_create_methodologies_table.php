@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMehtodologiesTable extends Migration
+class CreateMethodologiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMehtodologiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('mehtodologies', function (Blueprint $table) {
+        Schema::create('methodologies', function (Blueprint $table) {
         	$table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->string('name');
@@ -25,9 +25,7 @@ class CreateMehtodologiesTable extends Migration
             
         });
         
-        	Schema::table('mehtodologies', function($table) {
-        		
-        	});
+
     }
 
     /**
@@ -37,6 +35,6 @@ class CreateMehtodologiesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('mehtodologies');
+        Schema::drop('methodologies');
     }
 }
