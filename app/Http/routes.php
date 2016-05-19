@@ -75,6 +75,11 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'edituser',
 	
 	]);
+	Route::get('/delete-user/{user_id}', [
+			'uses' => 'userController@getDeleteUser',
+			'as' => 'user.delete',
+				
+	]);
 	Route::get('/dashboard/addproject',[
 			'uses'=>'AdminController@getAddProject',
 			'as'=>'addproject',
@@ -165,6 +170,8 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'uses'=>'AdminController@getDailyReports',
 			'as'=>'dailyreports',
 	]);
+	
+	
 });
 
 

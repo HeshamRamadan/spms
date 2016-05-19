@@ -23,7 +23,7 @@ class CreateTasksTable extends Migration
 			$table->integer('developer_id')->unsigned();
         	$table->foreign('developer_id')->references('id')->on('developers');
         	$table->integer('release_id')->unsigned();
-        	$table->foreign('release_id')->references('id')->on('releases');
+        	$table->foreign('release_id')->references('id')->on('releases')->onDelete('cascade');
         	$table->timestamps();
             
         });

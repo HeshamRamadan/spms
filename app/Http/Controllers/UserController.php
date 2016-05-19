@@ -72,4 +72,13 @@ public function getSignInPage(){
     	return redirect()->route('error');
     }
    
+    public function getDeleteUser($user_id){
+    
+    	$user = User::where('id', $user_id)->first();    	
+    	$user->delete();
+    
+    	return redirect()->route('edituser')->with(['message' => 'User Deleted Successfully' ] );
+    }
+    
+    
 }

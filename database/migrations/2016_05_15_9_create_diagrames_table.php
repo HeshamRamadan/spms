@@ -19,7 +19,7 @@ class CreateDiagramesTable extends Migration
             $table->text('desc');
             $table->string('file_path');
             $table->integer('methodology_id')->unsigned();
-            $table->foreign('methodology_id')->references('id')->on('methodologies');
+            $table->foreign('methodology_id')->references('id')->on('methodologies')->onDelete('cascade');
            	$table->timestamps();
         });
     }

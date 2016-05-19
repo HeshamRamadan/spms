@@ -16,7 +16,7 @@ class CreateDevelopersTable extends Migration
         	$table->engine = 'InnoDB';
         	$table->increments('id')->unsigned();
         	$table->integer('user_id')->unsigned();
-        	$table->foreign('user_id')->references('id')->on('users');
+        	$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         	$table->string('prog_langs');
             $table->timestamps();
             

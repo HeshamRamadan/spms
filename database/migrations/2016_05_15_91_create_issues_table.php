@@ -23,7 +23,7 @@ class CreateIssuesTable extends Migration
             $table->integer('tester_id')->unsigned();
             $table->foreign('tester_id')->references('id')->on('testers');
             $table->integer('release_id')->unsigned();
-            $table->foreign('release_id')->references('id')->on('releases');
+            $table->foreign('release_id')->references('id')->on('releases')->onDelete('cascade');
             $table->integer('progress');
             $table->string('screenshot');
             $table->timestamps();

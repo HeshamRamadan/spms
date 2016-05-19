@@ -9,7 +9,7 @@
 
 @include('includes/header')
 @include('includes/sidebar' , ['state' => 'edituser'] )
-	
+@include('includes/message-block')	
 <div class="col-sm-8 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<h1>Edit User</h1>
 	 <div class="row">
@@ -31,7 +31,7 @@
 					    @foreach ($users as $user)
 					      <tr>
 					        <td>{{$user->name}}</td>
-					        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-primary btn-sm">Delete</button></td>
+					        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <a href="{{route('user.delete',['user_id' => $user->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
 					      </tr>
 					    	@endforeach
 					    </tbody>
