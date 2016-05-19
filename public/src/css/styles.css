@@ -591,7 +591,8 @@ a.bg-danger:hover {
 .sidebar ul.nav ul.children li a {
 	height: 40px;
 	background: #f9f9f9;
-	color: #30a5ff!important;
+	color:#571f84 !important;
+	font-weight: bold;
 }
 
 .sidebar ul.nav li.current a {

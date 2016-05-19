@@ -17,8 +17,7 @@
 	 
 
 <div class="row">
-				
-		
+			
 			<div class="col-md-4">
 				<div class="panel panel-success">
 					<div class="panel-heading">
@@ -76,7 +75,31 @@
 						Releases
 					</div>
 					<div class="panel-body">
-						<p>{{$project->releases}}</p>
+						
+						<a href="{{route('addrelease',['project_id' => $project->id])}}"><button  type="button" class="btn btn-primary btn-sm">Add New Release</button></a>								
+						
+						<table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
+						    <thead style="background-color:#DEF0DA; color:#009425;">
+						      <tr>
+						        <th>Release Number</th>
+						        <th></th>
+						        
+						      
+						      </tr>
+						    </thead>
+						    <tbody>
+						    
+						    @foreach ($project->releases as $release)
+						      <tr>
+						        <td>{{$release->number}}</td>
+						       	<td>  <a href="{{route('viewrelease',['release_id' => $release->id])}}"><button  type="button" class="btn btn-primary btn-sm">View</button></a>  <a href="{{route('editrelease',['release_id' => $release->id])}}"><button  type="button" class="btn btn-primary btn-sm">Edit</button></a> <a href="{{route('deleterelease',['release_id' => $release->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
+						       	
+						      </tr>
+						    	@endforeach
+						    </tbody>
+					  </table>
+					  
+					  
 					</div>
 				</div>
 			</div>
@@ -93,8 +116,12 @@
 			</div>
 				
 			
+			
+			
 		</div><!-- /.row -->
 </div>
+
+
 
 	@endsection
 	

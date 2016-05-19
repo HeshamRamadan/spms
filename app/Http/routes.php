@@ -80,6 +80,8 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as' => 'user.delete',
 				
 	]);
+	//--------------------------------------------------------
+	//-- Project
 	Route::get('/dashboard/addproject',[
 			'uses'=>'AdminController@getAddProject',
 			'as'=>'addproject',
@@ -110,6 +112,38 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'uses'=>'AdminController@getDeleteProject',
 			'as'=>'deleteproject',
 	]);
+	//--------------------------------------------------------
+	//-- Release
+	Route::get('/dashboard/addrelease',[
+			'uses'=>'AdminController@getAddRelease',
+			'as'=>'addrelease',
+	
+	]);
+	
+	Route::get('/dashboard/viewrelease',[
+			'uses'=>'AdminController@getViewRelease',
+			'as'=>'viewrelease',
+	
+	]);
+	
+	Route::post('/dashboard/releasedata',[
+			'uses'=>'AdminController@getReleaseData',
+			'as'=>'releasedata',
+	
+	]);
+	
+	
+	Route::get('/dashboard/editrelease',[
+			'uses'=>'AdminController@getEditRelease',
+			'as'=>'editrelease',
+	]);
+	
+	Route::get('/dashboard/delete-release/{user_id}', [
+			'uses' => 'userController@getDeleteRelease',
+			'as' => 'deleterelease',
+	]);
+	//--------------------------------------------------------
+	//-- Task
 	Route::get('/dashboard/addtask',[
 			'uses'=>'AdminController@getAddTask',
 			'as'=>'addtask',
@@ -129,7 +163,6 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	
 	
-	
 	Route::get('/dashboard/edittask',[
 			'uses'=>'AdminController@getEditTask',
 			'as'=>'edittask',
@@ -138,6 +171,8 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'uses'=>'AdminController@getDeleteTask',
 			'as'=>'deletetask',
 	]);
+	//--------------------------------------------------------
+	// -- Issue
 	Route::get('/dashboard/addissue',[
 			'uses'=>'AdminController@getAddIssue',
 			'as'=>'addissue',

@@ -160,6 +160,12 @@ class AdminController extends Controller
 		{
 			return view('admin/Project/deleteproject');
 		}
+		
+		
+		
+		
+		
+		
 		public function getAddTask()
 		{
 			$user = User::all();
