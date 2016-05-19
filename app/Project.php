@@ -13,6 +13,6 @@ class Project extends Model
     	return $this->hasMany('App\Release');
     }
     public function mehtodology(){
-    	return $this->hasOne('App\Mehtodology');
+    	return $this->hasOne('App\Methodology');
     }
 }

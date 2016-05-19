@@ -8,6 +8,15 @@ use App\User;
 use App\Developer;
 use App\Manager;
 use App\Tester;
+use App\Project;
+use App\Diagrame;
+use App\Methodology;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
+
+
 
 class AdminController extends Controller
 {
@@ -82,9 +91,45 @@ class AdminController extends Controller
 		}
 		
 		public function getAddProject()
+		{	
+			$managers = Manager::all();
+			return view('admin/Project/addnewproject' , ['managers' => $managers]);
+		}
+		public function postNewProject(Request $request)
+		
 		{
-			$user = User::all();
-			return view('admin/Project/addnewproject' , ['users' => $user]);
+			
+					$name				= $request['name'];
+					$desc				= $request['desc'];
+					$deadline			= $request['deadline'];
+					$manager_id			= $request['project_manager'];
+					$method				= $request['method'];
+					$diagrame_name		= $request['diagrame_name'];
+					$file				= $request->file('image');
+					$filename			= $request['name']. '-' . $diagrame_name . 'jpg' ;
+				
+					$project = new Project;
+					$project->name = $name;
+					$project->desc = $desc;
+					$project->dead_line = $deadline;
+					$project->manager_id = $manager_id;
+					$project->save();
+					$methodology = new  Methodology;
+					$methodology->name = $method;
+					$methodology->project_id = $project->id ;
+					$methodology->save();
+					$diagrame = new Diagrame;
+					$diagrame->name = $diagrame_name;
+					$diagrame->methodology_id = $methodology->id;
+					$diagrame->save();
+					if($file){
+						Storage::disk('local')->put($filename,File::get($file));
+					
+					}else return redirect()->back();
+					
+					
+			return redirect()->route('dashboard');		
+			
 		}
 		
 		public function getViewProject()

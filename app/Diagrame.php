@@ -8,7 +8,7 @@ class Diagrame extends Model
 {
     //
 	public function mehtodology(){
-		return $this->belongsTo('App\Mehtodology');
+		return $this->belongsTo('App\Methodology');
 	}
     
 }

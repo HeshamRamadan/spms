@@ -80,6 +80,11 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'addproject',
 	
 	]);
+	Route::post('/dashboard/newproject',[
+			'uses'=>'AdminController@postNewProject',
+			'as'=>'newproject',
+	
+	]);
 	Route::get('/dashboard/viewproject',[
 			'uses'=>'AdminController@getViewProject',
 			'as'=>'viewproject',
