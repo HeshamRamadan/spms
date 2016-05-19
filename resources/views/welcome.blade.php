@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>SPMS</title>
-        <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="src/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="src/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="{{URL::to('src/css/main.css')}}">
         
