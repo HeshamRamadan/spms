@@ -181,8 +181,8 @@ Route::group(['middleware' => ['admin-g']], function () {
 //testing routes
 Route::get('/test', function (){
 
-	$issues = Issue::all();
-	return View('/test/articles',['issues' => $issues]);
+	$issue = Issue::where('release_id', '=' , 1)->max('id');
+	return View('/test/articles',['issue' => $issue]);
 
 });
 

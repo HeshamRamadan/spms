@@ -186,6 +186,28 @@ class AdminController extends Controller
 				
 		}
 		
+		public function postAddrelease(Request $request)
+		{
+			$desc = $request[''];
+			$features = $request[''];
+			$status = $request[''];
+			$rel_number = $request[''];
+			$project_id = $request[''];
+			
+			$r_state = Release::where('project_id', '=' , $project_id)->max('rel_number');
+			
+			
+			
+			$release = new Release;
+			$release->desc = $desc;
+			$release->features = $features;
+			$release->status = $status;
+			$release->project_id = $project_id;
+			$release->rel_number = $r_state+1;
+			$release->save();
+			
+		}
+		
 		public function getEditTask()
 		{
 			return view('admin/Task/edittask');
