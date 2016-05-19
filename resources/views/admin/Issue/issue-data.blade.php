@@ -9,7 +9,7 @@
 @section('content')
 
 @include('includes/header')
-@include('includes/sidebar' , ['state' => 'viewtask'] )
+@include('includes/sidebar' , ['state' => 'viewissue'] )
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	
 	<h1>issue# :{{$issue->id}}</h1><br>
@@ -37,7 +37,7 @@
 						Created By
 					</div>
 					<div class="panel-body">
-						<p>{{$issue->user->created_by}}</p>
+						<p>{{$issue->user->name}}</p>
 					</div>
 				</div>
 			</div>	
@@ -48,7 +48,7 @@
 						Assigned To
 					</div>
 					<div class="panel-body">
-						<p>{{$issue->user->name}}</p>
+						<p>{{$issue->developer->user->name}}</p>
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 						Tested By
 					</div>
 					<div class="panel-body">
-						<p>{{$issue->developer->user->name}}</p>
+						<p>{{$issue->tester->user->name}}</p>
 					</div>
 				</div>
 			</div>
@@ -68,21 +68,22 @@
 						Project Name
 					</div>
 					<div class="panel-body">
-						<p>{{$task->release->project->name}}</p>
+						<p>{{$issue->release->project->name}}</p>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-4">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						Created Date
+					</div>
+					<div class="panel-body">
+						<p>{{$issue->created_at}}</p>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						Release Id
-					</div>
-					<div class="panel-body">
-						<p>{{$task->release_id}}</p>
-					</div>
-				</div>
-			</div>
+		
 			
 				<div class="col-md-6">
 				<div class="panel panel-success">
@@ -95,30 +96,19 @@
 				</div>
 			</div>
 			
-			
-			
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						Start Date
+						Status
 					</div>
 					<div class="panel-body">
-						<p>{{$task->created_at}}</p>
+						<p>{{$issue->progress}}</p>
 					</div>
 				</div>
 			</div>
 			
-				<div class="col-md-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						End Date
-					</div>
-					<div class="panel-body">
-						<p>{{$task->end_date}}</p>
-					</div>
-				</div>
-			</div>
 			
+		
 			
 			
 			

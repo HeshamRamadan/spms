@@ -14,6 +14,8 @@ use App\Tester;
 use App\Diagrame;
 use App\Methodology;
 use App\Release;
+use App\Task;
+use App\Issue;
 
 class AdminController extends Controller
 {

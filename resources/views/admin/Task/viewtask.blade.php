@@ -47,7 +47,7 @@
 					        <th>Task Title</th>
 					        <th>Developer</th>
 					        <th>Status</th>
-					        <th></th>
+					       
 					        
 					      
 					      </tr>
@@ -59,7 +59,7 @@
 					        <td>{{$task->title}}</td>
 					       	<td>{{$task->developer->user->name}}</td>
 					       	<td>{{$task->status}}</td>
-					       <td>{{$task->release_id}}</td>
+					       
 					      </tr>
 					    	@endforeach
 					    </tbody>

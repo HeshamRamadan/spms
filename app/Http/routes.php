@@ -148,6 +148,11 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'viewissue',
 	
 	]);
+	Route::post('/dashboard/issuedata',[
+			'uses'=>'AdminController@getIssueData',
+			'as'=>'issuedata',
+	
+	]);
 	Route::get('/dashboard/editissue',[
 			'uses'=>'AdminController@getEditIssue',
 			'as'=>'editissue',
