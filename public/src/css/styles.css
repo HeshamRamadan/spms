@@ -863,6 +863,7 @@ h1.page-header {
 	border-bottom: 1px solid #e6e7e8;
 	vertical-align: middle;
 	height: 50px;
+	font-size: 18px;
 }
 
 .fixed-table-pagination .pagination {
