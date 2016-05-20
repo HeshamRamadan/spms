@@ -32,7 +32,7 @@
                 <label for="desc">Description</label>
                 <div class="form-group {{ $errors->has('desc')?'has-error':'' }}">
                     
-                    <textarea class="form-control" id="desc" name="desc"  >{{ old('desc') }}</textarea>
+                    <textarea class="form-control" id="desc" name="desc" value="{{ old('desc') }}" ></textarea>
                   @if ($errors->has('desc'))
                        <span class="help-block">
                           <strong>{{ $errors->first('desc') }}</strong>
@@ -42,7 +42,7 @@
                 <label for="deadline">DeadLine</label>
                 <div class="input-group form-group {{ $errors->has('deadline')?'has-error':'' }} input-append" id="datetimepicker4">                 		
 					    <span  class="add-on input-group-addon" style="background-color: white; border:  0px solid white; padding-left: 0px;padding-right: 0px;">
-					      <input  class="form-control" name="deadline" id="deadline" data-format="yyyy-MM-dd" type="text" aria-describedby="basic-addon2" value="{{ old('email') }}">
+					      <input  class="form-control" name="deadline" id="deadline" data-format="yyyy-MM-dd" type="text" aria-describedby="basic-addon2" value="{{ old('deadline') }}">
 					    </span>
 				  @if ($errors->has('deadline'))
                        <span class="help-block">
@@ -53,7 +53,7 @@
                 <label for="requirements">Requirements</label>
                 <div class="form-group {{ $errors->has('requirements')?'has-error':'' }}">
                     
-                    <textarea class="form-control" form="requirements" id="requirements" name="requirements" value="{{ old('email') }}"></textarea>
+                    <textarea  class="form-control" form="newproject" id="requirements" name="requirements" value="{{ old('requirements') }}"></textarea>
                   @if ($errors->has('requirements'))
                        <span class="help-block">
                           <strong>{{ $errors->first('requirements') }}</strong>

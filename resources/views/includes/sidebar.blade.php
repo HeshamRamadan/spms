@@ -15,7 +15,7 @@
 		<li class="parent ">
 				
 				<a data-toggle="collapse" href="#User">
-					<span data-toggle="collapse" href="#User"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg>User</span>  
+					<span data-toggle="collapse" href="#User"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg>Users</span>  
 				</a>
 				
 				<ul class="children collapse @if($state == 'addnewuser'||$state == 'edituser') in @endif" id="User">
@@ -32,27 +32,12 @@
 					
 				</ul>
 			</li>
+		<li class="item @if($state == 'Projects') active @endif">
+			<a href="{{route('viewproject')}}">
+				<svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg>Projects
+			</a>
+		</li>
 		
-		<li class="parent "  >
-				<a data-toggle="collapse" href="#Project">
-					<span data-toggle="collapse" href="#Project"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg>Project</span>  
-				</a>
-				
-				<ul class="children collapse @if($state == 'addproject'||$state == 'viewproject'||$state == 'editproject'||$state == 'deleteproject') in @endif" id="Project">
-					<li>
-						<a class="item @if($state == 'addproject') active @endif" href="{{route('addproject')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Project
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'viewproject') active @endif" href="{{route('viewproject')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> View Project
-						</a>
-					</li>
-					
-					
-				</ul>
-			</li>
 	
 		
 		
@@ -60,7 +45,7 @@
 		
 		<li class="item @if($state == 'dailyreports') active @endif">
 			<a href="{{route('dailyreports')}}">
-				<svg class="glyph stroked plus sign"><use xlink:href="#stroked-plus-sign"/></svg>Daily Reports
+				<svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg>Daily Reports
 			</a>
 		</li>
 		

@@ -101,6 +101,7 @@ class AdminController extends Controller
 			
 					$name				= $request['name'];
 					$desc				= $request['desc'];
+					$requirements		= $request['requirements'];
 					$deadline			= $request['deadline'];
 					$manager_id			= $request['project_manager'];
 					$method				= $request['method'];
@@ -111,6 +112,7 @@ class AdminController extends Controller
 					$project = new Project;
 					$project->name = $name;
 					$project->desc = $desc;
+					$project->requirements = $requirements;
 					$project->dead_line = $deadline;
 					$project->manager_id = $manager_id;
 					$project->save();

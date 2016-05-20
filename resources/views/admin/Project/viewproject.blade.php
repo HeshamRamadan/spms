@@ -1,16 +1,16 @@
 @extends('layouts.master')
 
 @section('title')
-   SPMS | View Project
+   SPMS | Projects
 @endsection
 
 
 @section('content')
 
 @include('includes/header')
-@include('includes/sidebar' , ['state' => 'viewproject'] )
+@include('includes/sidebar' , ['state' => 'projects'] )
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" >
-	<h1>View Project</h1><br>
+	<h1>Projects</h1><br>
 	
 	 <div class="row">
 	        <div class="col-md-8 " >
@@ -40,6 +40,9 @@
            <div class="panel panel-primary reg-panal"  >
            <div class="panel-heading"><h3 style="color: white; ">View All Projects</h3></div>
            <div class="panel-body">
+				 
+				 <a href="{{route('addproject')}}"><button  type="button" class="btn btn-primary btn-sm">Add New Project</button></a>								
+						<hr>
 				 <table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
 					    <thead style="background-color:#DEF0DA; color:#009425;">
 					      <tr>
