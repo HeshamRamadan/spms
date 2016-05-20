@@ -19,7 +19,6 @@ class CreateProjectsTable extends Migration
             $table->text('desc');
             $table->date('dead_line');
             $table->string('requirements');
-            $table->integer('releases');
             $table->integer('manager_id')->unsigned();
             $table->foreign('manager_id')->references('id')->on('managers');
             $table->timestamps();
