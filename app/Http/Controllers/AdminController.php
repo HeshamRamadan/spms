@@ -127,7 +127,7 @@ class AdminController extends Controller
 					if($file){
 						Storage::disk('local')->put($filename,File::get($file));
 					
-					}else return redirect()->back();
+					}else return redirect()->route('viewproject')->with(['message' => 'Added new project successfuly !' ]);;
 					
 					
 			return redirect()->route('dashboard');		
@@ -205,7 +205,7 @@ class AdminController extends Controller
 			$release->save();
 			 
 			
-			return redirect()->route('getproject' , ['pid' =>  $project_id]);
+			return redirect()->route('getproject' , ['pid' =>  $project_id])->with(['message' => 'Added new release successfuly !' ]);;
 				
 		}
 		
