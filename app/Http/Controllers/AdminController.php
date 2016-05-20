@@ -167,9 +167,13 @@ class AdminController extends Controller
 			return view('admin/Project/editproject');
 		}
 
-		public function getDeleteProject()
+		public function getDeleteProject($project_id)
 		{
-			return view('admin/Project/deleteproject');
+			$project = Project::where('id', $project_id)->first();    	
+    	$project->delete();
+		
+			return redirect()->back()->with(['message' => 'Project Deleted Successfully' ] );
+	
 		}
 		
 		public function getAddRelease($project_id){

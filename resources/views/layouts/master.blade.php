@@ -15,7 +15,7 @@
 	</head>
 	
 	<body>
-    	
+    		@include('includes/message-block')	
   			@yield('content')
  		
  	

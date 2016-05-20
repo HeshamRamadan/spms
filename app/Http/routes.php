@@ -112,7 +112,7 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'uses'=>'AdminController@getEditProject',
 			'as'=>'editproject',
 	]);
-	Route::get('/dashboard/deleteproject',[
+	Route::get('/dashboard/deleteproject/{project_id}',[
 			'uses'=>'AdminController@getDeleteProject',
 			'as'=>'deleteproject',
 	]);

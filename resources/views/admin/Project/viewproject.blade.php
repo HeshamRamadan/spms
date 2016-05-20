@@ -13,7 +13,7 @@
 	<h1>View Project</h1><br>
 	
 	 <div class="row">
-	        <div class="col-md-8 " style="margin-left: 3%; margin-top:3%;">
+	        <div class="col-md-8 " >
 	           <div class="panel panel-primary reg-panal"  >
 	           <div class="panel-heading"><h3 style="color: white; ">Find project</h3></div>
 	            <div class="panel-body">
@@ -36,27 +36,37 @@
 		</div>
 		
 	   <div class="row">
-           <div class="col-md-8 " style="margin-left: 3%; margin-top:3%;">
+           <div class="col-md-12 ">
            <div class="panel panel-primary reg-panal"  >
            <div class="panel-heading"><h3 style="color: white; ">View All Projects</h3></div>
            <div class="panel-body">
 				 <table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
 					    <thead style="background-color:#DEF0DA; color:#009425;">
 					      <tr>
+					      
 					        <th>Project Name</th>
 					        <th>Project Manager</th>
 					        <th>Start Date</th>
 					        <th>Dead Line</th>
+					        <th></th>
+					        <th></th>
+					        <th></th>
 					      
 					      </tr>
 					    </thead>
 					    <tbody>
 					    @foreach ($projects as $project)
+					     
 					      <tr>
+					      
 					        <td>{{$project->name}}</td>
 					       	<td>{{$project->manager->user->name}}</td>
 					       	<td>{{$project->created_at}}</td>
 					       	<td>{{$project->dead_line}}</td>
+					       	<td><a href="{{route('getproject' , ['pid' =>  $project->id])}}"><button  type="button" class="btn btn-primary btn-sm">View</button></a> </td>
+						    <td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Edit</button></a></td> 
+						    <td><a href="{{route('deleteproject',['project_id' => $project->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
+					       	
 					      </tr>
 					    	@endforeach
 					    </tbody>

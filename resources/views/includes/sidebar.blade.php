@@ -49,16 +49,8 @@
 							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> View Project
 						</a>
 					</li>
-					<li>
-						<a class="item @if($state == 'editproject') active @endif" href="{{route('editproject')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Edit Project
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'deleteproject') active @endif" href="{{route('deleteproject')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Delete Project
-						</a>
-					</li>
+					
+					
 				</ul>
 			</li>
 	
