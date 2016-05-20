@@ -260,10 +260,10 @@ class AdminController extends Controller
 		
 		}
 		
-		public function getViewTask()
+		public function getViewTask($task_id)
 		{	
-			$tasks = Task::all();
-			return view('admin/Task/viewtask' , ['tasks' => $tasks]);
+			$task = Task::find($task_id);
+			return view('Admin/Task/viewtask' , ['task' => $task]);
 		
 		}
 		

@@ -23,7 +23,7 @@
                 <label for="title">Title</label>
                 <div class="form-group {{ $errors->has('title')?'has-error':'' }}">
                     
-                    <input class="form-control" type="text" id="title" name="title" >
+                    <input class="form-control" type="text" id="title" name="title" required  autofocus >
                   @if ($errors->has('title'))
                        <span class="help-block">
                           <strong>{{ $errors->first('title') }}</strong>

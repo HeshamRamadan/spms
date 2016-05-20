@@ -9,69 +9,94 @@
 
 @include('includes/header')
 @include('includes/sidebar' , ['state' => 'viewtask'] )
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" >
-	<h1>View Task</h1><br>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	
-	 <div class="row">
-	        <div class="col-md-8 " style="margin-left: 3%; margin-top:3%;">
-	           <div class="panel panel-primary reg-panal"  >
-	           <div class="panel-heading"><h3 style="color: white; ">Find Task</h3></div>
-	            <div class="panel-body">
-	                 <label>Enter your task id</label>
-	                   
-	       			 <form  role="search" method="post" action="{{ route('taskdata') }}">
-				      {!! csrf_field() !!}
-				        <div class="form-group">
-				          <br><input type="text" class="form-control" id="search" name="search"  placeholder="Search" style="display:inline;" autofocus >
-				        </div>
-				        
-				        <button type="submit" class="btn btn-default">Search</button>
-				   <input type="hidden" value="{{ Session::token() }}" name="_token">
-				     
-				    </form> 				
-	           </div>
-	        
+	<h1>Task # {{$task->task_number}} [ {{$task->release->project->name}} project ]</h1><br>
+	
+	 
+
+<div class="row">
+			
+			
+			<div class="col-md-4">	
+				<div class="panel panel-success">
+					<div class="panel-heading panel-heading-view">
+						Task Number
+					</div>
+					<div class="panel-body">
+						<p> {{$task->task_number}}</p>
+					</div>
+				</div>
 			</div>
-			</div>
-		</div>
+			
 		
-	   <div class="row">
-           <div class="col-md-8 " style="margin-left: 3%; margin-top:3%;">
-           <div class="panel panel-primary reg-panal"  >
-           <div class="panel-heading"><h3 style="color: white; ">View All Tasks</h3></div>
-           <div class="panel-body">
-				 <table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
-					    <thead style="background-color:#DEF0DA; color:#009425;">
-					      <tr>
-					        <th>Task Id</th>
-					        <th>Task Title</th>
-					        <th>Developer</th>
-					        <th>Status</th>
-					       
-					        
-					      
-					      </tr>
-					    </thead>
-					    <tbody>
-					    @foreach ($tasks as $task)
-					      <tr>
-					     	<td>{{$task->id}}</td>
-					        <td>{{$task->title}}</td>
-					       	<td>{{$task->developer->user->name}}</td>
-					       	<td>{{$task->status}}</td>
-					       
-					      </tr>
-					    	@endforeach
-					    </tbody>
-					  </table>
-						</div>	
-					
-										    
-	        </div> 
+			<div class="col-md-4">
+				<div class="panel panel-success">
+					<div class="panel-heading panel-heading-view">
+						Task Title
+					</div>
+					<div class="panel-body panel-body-view">
+						<p> {{$task->title}}</p>
+					</div>
+				</div>
 			</div>
+			
+			
+			<div class="col-md-4">
+				<div class="panel panel-success">
+					<div class="panel-heading panel-heading-view">
+						Start Date
+					</div>
+					<div class="panel-body">
+						<p>{{$task->created_at}}</p>
+					</div>
+				</div>
 			</div>
-		</div>
+			
+			<div class="col-md-4">
+				<div class="panel panel-success">
+					<div class="panel-heading panel-heading-view">
+						Status
+					</div>
+					<div class="panel-body panel-body-view">
+						<p>{{$task->status}}</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading-view panel-heading">
+						Description
+					</div>
+					<div class="panel-body">
+						<p>{{$task->desc}}</p>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading-view panel-heading">
+						Developer
+					</div>
+					<div class="panel-body">
+						<p>{{$task->developer->user->name}}</p>
+					</div>
+				</div>
+			</div>	
+				
+				
 </div>
+</div>
+
+
+			
+			
+			
+		
+
 
 
 @endsection

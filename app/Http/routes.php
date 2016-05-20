@@ -166,7 +166,7 @@ Route::group(['middleware' => ['admin-g']], function () {
 	
 	]);
 	
-	Route::get('/dashboard/viewtask',[
+	Route::get('/dashboard/viewtask/{task_id}',[
 			'uses'=>'AdminController@getViewTask',
 			'as'=>'viewtask',
 	
