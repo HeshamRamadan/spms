@@ -17,7 +17,7 @@
 	<div class="row">
         <div class="col-md-8 " style="margin-left: 3%; margin-top:3%;">
            <div class="panel panel-primary reg-panal"  >
-           <div class="panel-heading"><h3 style="color: white; ">New Project</h3></div>
+           <div class="panel-heading"><h3 style="color: white; ">New Release</h3></div>
             <div class="panel-body">
             
             <form action="{{ route('addnewrelease' ,['project_id' => $project->id]) }}" method="post" id="addnewrelease">

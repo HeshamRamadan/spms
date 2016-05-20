@@ -26,6 +26,7 @@ class CreateIssuesTable extends Migration
             $table->foreign('release_id')->references('id')->on('releases')->onDelete('cascade');
             $table->integer('progress');
             $table->string('screenshot');
+            $table->integer('issue_number')->default(1);
             $table->timestamps();
         });
     }

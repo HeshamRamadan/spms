@@ -90,6 +90,118 @@ class AdminController extends Controller
 			return view('admin/User/edituser',['users' => $users]);
 		}
 		
+		//get the view form to ecit user
+		public function getEditUserId($id)
+		{
+			$user = User::find($id);
+			if($user->job_type!=1){
+				switch ($user->job_type) {
+					case 2:
+						$manager = Manager::where('user_id', $user->id)->first();
+						return view('admin/User/adjustuser',['user' => $user],['manager'=>$manager]);
+						break;
+					case 3:
+						$developer = Developer::where('user_id', $user->id)->first();
+						return view('admin/User/adjustuser',['user' => $user,['developer'=>$developer]]);
+						break;
+					case 4:
+						$tester = Tester::where('user_id', $user->id)->first();
+						return view('admin/User/adjustuser',['user' => $user],['tester'=>$tester]);
+						break;
+							
+				}
+			}else{
+				return view('admin/User/adjustuser',['user' => $user]);
+		
+			}
+		
+		}
+		
+		//save user data after sumit the changes
+		public function postSaveUser(Request $request, $user_id)
+		{
+			$user = User::find($user_id);
+			$user->name = $request['name'];
+			$user->email = $request['email'];
+			$user->password = bcrypt($request['passwd']);
+			$user->phone = $request['phone'];
+			$xp		  = $request['manager_experiances'];
+			$prog_lang = $request['prog_lang'];
+			$tester_experiances = $request['tester_experiances'];
+		
+			if ($user->job_type != $request['job_type']){
+		
+				//delete his old postion
+				switch ($user->job_type) {
+					case 2:
+						$manager = Manager::where('user_id', $user->id)->first();
+						$manager->delete();
+						break;
+					case 3:
+						$developer = Developer::where('user_id', $user->id)->first();
+						$user->developer->delete();
+						break;
+					case 4:
+						$tester = Tester::where('user_id', $user->id)->first();
+						$tester->delete();
+						break;
+							
+				}
+				//change job_type
+				$user->job_type = $request['job_type'];
+				$user->update();
+				//add to the right table
+				switch ($user->job_type) {
+					case 2:
+						$manager = new Manager;
+						$manager->user_id = $user->id;
+						$manager->xp_id 	= $xp;
+						$manager->save();
+						break;
+					case 3:
+						$developer		 = new Developer;
+						$developer->user_id = $user->id;
+						$developer->prog_langs = $prog_lang;
+						$developer->save();
+						break;
+					case 4:
+						$tester		 = new Tester;
+						$tester->user_id = $user->id;
+						$tester->years_xp = $tester_experiances;
+						$tester->save();
+						break;
+							
+				}
+		
+			}else{
+				switch ($user->job_type) {
+					case 2:
+						$manager = Manager::where('user_id', $user->id)->first();
+						$manager->xp_id 	= $xp;
+						$manager->update();
+						break;
+					case 3:
+						$developer = Developer::where('user_id', $user->id)->first();
+						$developer->prog_langs = $prog_lang;
+						$developer->update();
+						break;
+					case 4:
+						$tester = Tester::where('user_id', $user->id)->first();
+						$tester->years_xp = $tester_experiances;
+						$tester->update();
+						break;
+							
+				}
+				$user->update();
+			}
+		
+		
+		
+			return redirect()->route('edituser');
+		}
+		
+		
+		//------------------------------
 		public function getAddProject()
 		{	
 			$managers = Manager::all();
@@ -295,46 +407,75 @@ class AdminController extends Controller
 			return redirect()->route('viewrelease' , ['release_id' =>  $release_id])->with(['message' => 'Task Deleted Successfully' ] );
 	
 		}
-		public function getAddIssue()
-		{
-			return view('admin/Issue/addissue');
+		
+		public function getAddIssue($release_id){
+		
+			$release = Release::find($release_id);
+			$developers = Developer::all();
+			$testers = Tester::all();
+		
+			return view('admin/Issue/addissue' , ['release' => $release, 'developers' => $developers, 'testers' => $testers ]);
 		}
+		
+		public function postAddIssue(Request $request , $release_id)
+		{
+			$desc = $request['desc'];
+			$developer = $request['developer'];
+			$tester = $request['tester'];
+			
+			$progress = $request['progress'];
+			
+			$r_state = Issue::where('release_id', '=' , $release_id)->max('issue_number');
+			
+		
+			$issue = new Issue;
+			$issue->desc = $desc;
+			$issue->user_id = Auth::user()->id;
+			$issue->developer_id = $developer;
+			$issue->tester_id = $tester;
+			
+			$issue->progress = $progress;
+			$issue->release_id = $release_id;
+			$issue->issue_number = $r_state+1;
+			$issue->save();
+		
+							
+			return redirect()->route('viewrelease' , ['release_id' =>  $release_id])->with(['message' => 'Added new issue successfuly !' ]);;
+		
+		}
+		
+		
+		
 		public function getAssignIssue()
 		{
 			return view('admin/Issue/assignissue');
 		}
-		public function getViewIssue()
+		
+		public function getViewIssue($issue_id)
 		{
-			$issues = Issue::all();
-			
-			
-			return view('admin/Issue/viewissue', ['issues' => $issues ]);
+			$issue = Issue::find($issue_id);
+			$id = $issue->user_id;
+			$owner= User::find($id);
+			return view('Admin/Issue/viewissue' , ['issue' => $issue , 'owner' => $owner]);
 		
 		}
 		
 			
-		public function getIssueData(Request $request)
-		{
-		
-			$value = $request['search'];
-		
-			$issue = Issue::where('id', $value)->first();
-			if(! $issue){
-				return redirect()->back();
-			}
-			return view('admin/Issue/issue-data' , ['issue' => $issue]);
-		
-		}
-		
 		
 		public function getEditIssue()
 		{
 			return view('admin/Issue/editissue');
 		}
 		
-		public function getDeleteIssue()
+		public function getDeleteIssue($issue_id)
 		{
-			return view('admin/Issue/deleteissue');
+			
+			$issue = Issue::find($issue_id);
+			$release_id = $issue->release_id;
+			$issue->delete();
+		
+			return redirect()->route('viewrelease' , ['release_id' =>  $release_id])->with(['message' => 'issue Deleted Successfully' ] );
+	
 		}
 	
 		public function getDailyReports()

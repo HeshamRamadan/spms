@@ -80,6 +80,20 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as' => 'user.delete',
 				
 	]);
+	
+	
+	Route::get('/dashboard/edituserid/{id}',[
+			'uses'=>'AdminController@getEditUserId',
+			'as'=>'user.edit'
+	
+	]);
+	Route::post('/dashboard/saveuserid/{id}',[
+			'uses'=>'AdminController@postSaveUser',
+			'as'=>'save.edit'
+	
+	]);
+	
+	
 	//--------------------------------------------------------
 	//-- Project
 	Route::get('/dashboard/addproject',[
@@ -189,34 +203,40 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	//--------------------------------------------------------
 	// -- Issue
-	Route::get('/dashboard/addissue',[
+	Route::get('/dashboard/addissue/{release_id}',[
 			'uses'=>'AdminController@getAddIssue',
 			'as'=>'addissue',
 	
 	]);
+	
+	Route::post('/dashboard/addnewissue/{release_id}',[
+			'uses'=>'AdminController@postAddIssue',
+			'as'=>'addnewissue',
+	
+	]);
+	
 	Route::get('/dashboard/assignissue',[
 			'uses'=>'AdminController@getAssignIssue',
 			'as'=>'assignissue',
 	
 	]);
-	Route::get('/dashboard/viewissue',[
+	Route::get('/dashboard/viewissue/{issue_id}',[
 			'uses'=>'AdminController@getViewIssue',
 			'as'=>'viewissue',
 	
 	]);
-	Route::post('/dashboard/issuedata',[
-			'uses'=>'AdminController@getIssueData',
-			'as'=>'issuedata',
 	
-	]);
+	
 	Route::get('/dashboard/editissue',[
 			'uses'=>'AdminController@getEditIssue',
 			'as'=>'editissue',
 	]);
-	Route::get('/dashboard/deleteissue',[
+	Route::get('/dashboard/deleteissue/{issue_id}',[
 			'uses'=>'AdminController@getDeleteIssue',
 			'as'=>'deleteissue',
 	]);
+
+	
 	Route::get('/dashboard/dailyreports',[
 			'uses'=>'AdminController@getDailyReports',
 			'as'=>'dailyreports',

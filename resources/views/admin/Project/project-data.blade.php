@@ -107,44 +107,7 @@
 					</div>
 				</div>
 			</div>
-				<div class="col-md-6">
-				<div class="panel panel-success">
-					<div class="panel-heading-view panel-heading">
-						Issues
-					</div>
-					<div class="panel-body">
-						
-						<a href="#"><button  type="button" class="btn btn-primary btn-sm">Add New Issue</button></a>								
-						<hr>
-						<table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
-						    <thead style="background-color:#E0E2E0; color:#009425;">
-						      <tr>
-						        <th>Issue ID</th>
-						        <th></th>
-						        <th></th>
-						        <th></th>
-						        
-						      
-						      </tr>
-						    </thead>
-						    <tbody>
-						    
-						     
-						      <tr>
-						        <td>||||||||||||||||</td>
-						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">View</button></a> </td>
-						      	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Edit</button></a></td> 
-						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
-						      </tr>
-						      
-						    </tbody>
-					  </table>
-					  
-					  
-					</div>
-				</div>
-			</div>
-				
+			
 				<div class="col-md-4">
 				<div class="panel panel-success">
 					<div class="panel-heading panel-heading-view">
