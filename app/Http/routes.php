@@ -128,6 +128,8 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'addnewrelease',
 	
 	]);
+		
+	
 	Route::get('/dashboard/viewrelease/{release_id}',[
 			'uses'=>'AdminController@getViewRelease',
 			'as'=>'viewrelease',
@@ -152,9 +154,15 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	//--------------------------------------------------------
 	//-- Task
-	Route::get('/dashboard/addtask',[
+	Route::get('/dashboard/addtask/{release_id}',[
 			'uses'=>'AdminController@getAddTask',
 			'as'=>'addtask',
+	
+	]);
+	
+	Route::post('/dashboard/addnewtask/{release_id}',[
+			'uses'=>'AdminController@postAddTask',
+			'as'=>'addnewtask',
 	
 	]);
 	

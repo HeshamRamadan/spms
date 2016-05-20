@@ -25,9 +25,9 @@ INSERT INTO `managers` (`user_id`, `xp_id`, `created_at`, `updated_at`) VALUES
 INSERT INTO `testers` (`user_id`, `years_xp`, `created_at`, `updated_at`) VALUES
 (15, 0, '2016-05-16 21:23:53', '2016-05-16 21:23:53');
 
-INSERT INTO `projects` (`id`, `name`, `desc`, `dead_line`, `requirements`, `releases`, `manager_id`, `created_at`, `updated_at`) VALUES
-(1, 'project 1', 'kjfhydsahddasdasda', '2016-05-26', 'sadsasadada', 1, 1, '2016-05-25 22:00:00', '2016-05-18 22:00:00'),
-(2, 'project 2', 'kjfhydsahddasdasda', '2016-05-26', 'sadsasadada', 1, 1, '2016-05-25 22:00:00', '2016-05-18 22:00:00');
+INSERT INTO `projects` (`id`, `name`, `desc`, `dead_line`, `requirements`, `manager_id`, `created_at`, `updated_at`) VALUES
+(1, 'project 1', 'kjfhydsahddasdasda', '2016-05-26', 'sadsasadada', 1, '2016-05-25 22:00:00', '2016-05-18 22:00:00'),
+(2, 'project 2', 'kjfhydsahddasdasda', '2016-05-26', 'sadsasadada', 1, '2016-05-25 22:00:00', '2016-05-18 22:00:00');
 
 INSERT INTO `releases` (`id`, `desc`, `features`, `status`, `project_id`, `created_at`, `updated_at`) VALUES
 (1, 'intial', 'log in and regestration', 0, 2, '2016-05-18 22:00:00', '2016-05-24 22:00:00'),

@@ -211,8 +211,8 @@ class AdminController extends Controller
 		
 		public function getViewRelease($release_id)
 		{
-			$release = Release::where('id', $release_id)->first();
-			return view('admin/Project/viewrelease' , ['release' => $release]);
+			$release = Release::find($release_id);
+			return view('Admin/Project/viewrelease' , ['release' => $release]);
 		
 		}
 		
@@ -226,10 +226,38 @@ class AdminController extends Controller
 			return redirect()->route('getproject' , ['pid' =>  $project_id])->with(['message' => 'Release Deleted Successfully' ] );
 		}
 		
-		public function getAddTask()
+		public function getAddTask($release_id)
 		{
-			$user = User::all();
-			return view('admin/Task/addnewtask' , ['users' => $user]);
+			$release = Release::find($release_id);	
+			$developers = Developer::all();
+		
+			return view('Admin/Task/addtask' , ['release' => $release , 'developers' => $developers ]);
+		}
+		
+
+		public function postAddTask(Request $request , $release_id)
+		{
+			$title = $request['title'];
+			$desc = $request['desc'];
+			$developer = $request['developer'];
+			$status = $request['status'];
+			
+			$r_state = Task::where('release_id', '=' , $release_id)->max('task_number');
+		
+		
+		
+			$task = new Task;
+			$task->title = $title;
+			$task->desc = $desc;
+			$task->developer_id = $developer;
+			$task->status = $status;
+			$task->release_id = $release_id;
+			$task->task_number = $r_state+1;
+			$task->save();
+		
+				
+			return redirect()->route('viewrelease' , ['release_id' =>  $release_id])->with(['message' => 'Added new task successfuly !' ]);;
+		
 		}
 		
 		public function getViewTask()

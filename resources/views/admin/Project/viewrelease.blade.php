@@ -84,7 +84,7 @@
 					</div>
 					<div class="panel-body">
 						
-						<a href="#"><button  type="button" class="btn btn-primary btn-sm">Add New Task</button></a>								
+						<a href="{{route('addtask',['release_id' => $release->id])}}"><button  type="button" class="btn btn-primary btn-sm">Add New Task</button></a>								
 						<hr>
 						<table class="table table-bordered table-striped" style="width: 100%; font-size: 1.5em;">
 						    <thead style="background-color:#E0E2E0; color:#009425;">
@@ -99,14 +99,14 @@
 						    </thead>
 						    <tbody>
 						    
-						     
+						     @foreach($release->tasks as $task)
 						      <tr>
-						        <td></td>
+						        <td>{{$task->task_number}}</td>
 						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">View</button></a> </td>
 						       	 <td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Edit</button></a></td> 
-						       	<td><a href="{{route('deleterelease',['release_id' => $release->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
+						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
 						      </tr>
-						      
+						      @endforeach
 						    </tbody>
 					  </table>
 					  

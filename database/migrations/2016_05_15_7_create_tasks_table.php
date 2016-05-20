@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->integer('status');
+			$table->integer('task_number')->default(1);
 			$table->integer('developer_id')->unsigned();
         	$table->foreign('developer_id')->references('id')->on('developers');
         	$table->integer('release_id')->unsigned();

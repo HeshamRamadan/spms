@@ -8,7 +8,7 @@
 @section('content')
 
 @include('includes/header')
-@include('includes/sidebar' , ['state' => 'addtask'] )
+@include('includes/sidebar' , ['state' => 'projects'] )
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" >
 <h1>Add New Task</h1>
@@ -19,25 +19,29 @@
            <div class="panel-heading"><h3 style="color: white; ">New Task</h3></div>
             <div class="panel-body">
             
-            <form action="{{ route('addtask') }}" method="post" id="newtask">
+            <form action="{{ route('addnewtask',['release_id' => $release->id]) }}" method="post" id="newtask">
+                <label for="title">Title</label>
                 <div class="form-group {{ $errors->has('title')?'has-error':'' }}">
-                    <label for="title">Title</label>
+                    
                     <input class="form-control" type="text" id="title" name="title" >
                   @if ($errors->has('title'))
                        <span class="help-block">
                           <strong>{{ $errors->first('title') }}</strong>
                        </span>
                  @endif
-                </div>
+                </div> 
+                
+                <label for="desc">Description</label>
                 <div class="form-group {{ $errors->has('desc')?'has-error':'' }}">
-                    <label for="desc">Description</label>
-                    <textarea class="form-control" form="desc" id="desc" name="desc" value="" ></textarea>
+                    
+                    <textarea class="form-control" id="desc" name="desc" value="{{ old('desc') }}" ></textarea>
                   @if ($errors->has('desc'))
                        <span class="help-block">
                           <strong>{{ $errors->first('desc') }}</strong>
                        </span>
                  @endif                
                 </div>
+             
                 
                 
                 
@@ -45,8 +49,8 @@
                     <label for="developer">Developer</label><br>	  
 				   <select name="developer" class="form-control">
 				   		<option value="" selected ></option>	
-					    @foreach($users as $user)
-					   		 <option value="{{$user->job_type}}">{{$user->name}}</option>
+					    @foreach($developers as $developer)
+					   		 <option value="{{$developer->id}}">{{$developer->user->name}}</option>
 					    @endforeach
 					    
 				  	</select>
@@ -57,22 +61,16 @@
                  @endif 
 				  	     
                 </div>
-               	<div class="form-group {{ $errors->has('release')?'has-error':'' }}">
-                    <label for="release">Release</label><br>	  
-				   <select name="release" class="form-control">
-				   		<option value="" selected ></option>
-				   		@foreach($users as $user)
-					   		 <option value="{{$user->job_type}}">{{$user->name}}</option>
-					    @endforeach
-				  	</select>
-				 @if ($errors->has('release'))
+               	 
+                <div class="form-group {{ $errors->has('status')?'has-error':'' }}">
+                    <label for="name">Status</label>
+                    <input class="form-control" type="text" id="status" name="status" >
+                 	@if ($errors->has('status'))
                        <span class="help-block">
-                          <strong>{{ $errors->first('release') }}</strong>
+                          <strong>{{ $errors->first('status') }}</strong>
                        </span>
-                 @endif 
-				  	     
+                 	@endif
                 </div>
-               
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
                 <button type="submit" class="btn btn-primary">Submit</button>
                  
