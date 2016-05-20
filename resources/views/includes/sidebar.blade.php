@@ -62,68 +62,9 @@
 				</ul>
 			</li>
 	
-		<li class="parent ">
-				<a data-toggle="collapse" href="#Task">
-					<span data-toggle="collapse" href="#Task"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg>Task</span>  
-				</a>
-				
-				<ul class="children collapse @if($state == 'addtask'||$state == 'viewtask'||$state == 'edittask'||$state == 'deletetask') in @endif" id="Task">
-					<li>
-						<a class="item @if($state == 'addtask') active @endif" href="{{route('addtask')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Task
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'viewtask') active @endif" href="{{route('viewtask')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> View Task
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'edittask') active @endif" href="{{route('edittask')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Edit Task
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'deletetask') active @endif" href="{{route('deletetask')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Delete Task
-						</a>
-					</li>
-				</ul>
-			</li>
 		
 		
-		<li class="parent ">
-				<a data-toggle="collapse" href="#Issue">
-					<span data-toggle="collapse" href="#Issue"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg>Issue</span>  
-				</a>
-				<ul class="children collapse @if($state == 'addissue'||$state == 'assignissue'||$state == 'viewissue'||$state == 'editissue'||$state == 'deleteissue') in @endif" id="Issue">
-					<li>
-						<a class="item @if($state == 'addissue') active @endif" href="{{route('addissue')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Add Issue
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'assignissue') active @endif" href="{{route('assignissue')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Assign Issue
-						</a>
-					</li>
-					<li>
-						<a  class="item @if($state == 'viewissue') active @endif" href="{{route('viewissue')}}" >
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> View Issue
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'editissue') active @endif" href="{{route('editissue')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Edit Issue
-						</a>
-					</li>
-					<li>
-						<a class="item @if($state == 'deleteissue') active @endif" href="{{route('deleteissue')}}">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Delete Issue
-						</a>
-					</li>
-				</ul>
-			</li>
+		
 		
 		<li class="item @if($state == 'dailyreports') active @endif">
 			<a href="{{route('dailyreports')}}">

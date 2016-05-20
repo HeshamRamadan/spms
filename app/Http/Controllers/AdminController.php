@@ -150,7 +150,18 @@ class AdminController extends Controller
 			return view('admin/Project/project-data' , ['project' => $project]);
 			
 		}
-		
+		public function getProject($pid)
+		{
+				
+			$value = $pid;
+				
+			$project = Project::where('id', $value)->first();
+			if(! $project){
+				return redirect()->back();
+			}
+			return view('admin/Project/project-data' , ['project' => $project]);
+				
+		}
 		public function getEditProject()
 		{
 			return view('admin/Project/editproject');
@@ -161,10 +172,53 @@ class AdminController extends Controller
 			return view('admin/Project/deleteproject');
 		}
 		
+		public function getAddRelease($project_id){
 		
+			$project = Project::find($project_id);
+			
 		
+			return view('Admin/Project/addrelease' , ['project' => $project ]);
+		}
 		
+		public function postAddrelease(Request $request , $project_id)
+		{
+			$desc = $request['desc'];
+			$features = $request['features'];
+			$status = $request['status'];
+			
+			$r_state = Release::where('project_id', '=' , $project_id)->max('rel_number');
+				
+				
+				
+			$release = new Release;
+			$release->desc = $desc;
+			$release->features = $features;
+			$release->status = $status;
+			$release->project_id = $project_id;
+			$release->rel_number = $r_state+1;
+			$release->save();
+			 
+			
+			return redirect()->route('getproject' , ['pid' =>  $project_id]);
+				
+		}
 		
+		public function getViewRelease($release_id)
+		{
+			$release = Release::where('id', $release_id)->first();
+			return view('admin/Project/viewrelease' , ['release' => $release]);
+		
+		}
+		
+		public function getDeleteRelease($release_id){
+		
+			
+			$release = Release::find($release_id);
+			$project_id = $release->project_id;
+			$release->delete();
+		
+			return redirect()->route('getproject' , ['pid' =>  $project_id])->with(['message' => 'Release Deleted Successfully' ] );
+		}
 		
 		public function getAddTask()
 		{

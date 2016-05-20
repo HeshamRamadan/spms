@@ -28,12 +28,12 @@ Route::get('/',[
 		'middleware' => 'auth'
 		
 ]);
-		
 Route::get('/signinpage',[
 		'uses'=>'UserController@getSignInPage',
-		'as'=>'signinpage'	
-		
+		'as'=>'signinpage'
+
 ]);
+
 
 Route::post('/signin',[
 		'uses'=>'UserController@postSignIn',
@@ -102,7 +102,11 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'as'=>'projectdata',
 	
 	]);
+	Route::get('/dashboard/getproject/{pid}',[
+			'uses'=>'AdminController@getProject',
+			'as'=>'getproject',
 	
+	]);
 
 	Route::get('/dashboard/editproject',[
 			'uses'=>'AdminController@getEditProject',
@@ -114,13 +118,17 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	//--------------------------------------------------------
 	//-- Release
-	Route::get('/dashboard/addrelease',[
+	Route::get('/dashboard/addrelease/{project_id}',[
 			'uses'=>'AdminController@getAddRelease',
 			'as'=>'addrelease',
 	
 	]);
+	Route::post('/dashboard/addnewrelease/{project_id}',[
+			'uses'=>'AdminController@postAddRelease',
+			'as'=>'addnewrelease',
 	
-	Route::get('/dashboard/viewrelease',[
+	]);
+	Route::get('/dashboard/viewrelease/{release_id}',[
 			'uses'=>'AdminController@getViewRelease',
 			'as'=>'viewrelease',
 	
@@ -139,7 +147,7 @@ Route::group(['middleware' => ['admin-g']], function () {
 	]);
 	
 	Route::get('/dashboard/delete-release/{user_id}', [
-			'uses' => 'userController@getDeleteRelease',
+			'uses' => 'AdminController@getDeleteRelease',
 			'as' => 'deleterelease',
 	]);
 	//--------------------------------------------------------
@@ -210,11 +218,12 @@ Route::group(['middleware' => ['admin-g']], function () {
 });
 
 
+
 //testing routes
 Route::get('/test', function (){
 
-	$issues = Issue::all();
-	return View('/test/articles',['issues' => $issues]);
+	$issue = Issue::where('release_id', '=' , 1)->max('id');
+	return View('/test/articles',['issue' => $issue]);
 
 });
 
@@ -223,4 +232,5 @@ Route::get('/profile/{username}',function($username){
 	
 		$user = User::where('name', $username)->first();
 		return View::make('/test/profile')->with('user', $user);
+
 });

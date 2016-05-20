@@ -18,6 +18,7 @@ class CreateReleasesTable extends Migration
             $table->text('desc');
             $table->text('features');
             $table->integer('status');
+            $table->integer('rel_number')->default(1);
             $table->integer('project_id')->unsigned();
         	$table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         	$table->timestamps();

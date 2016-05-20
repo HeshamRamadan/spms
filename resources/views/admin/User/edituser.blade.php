@@ -23,16 +23,19 @@
 					    <thead >
 					      <tr>
 					        <th>Name</th>
-					        <th>-----</th>
-					      
+					        <th>Edit</th>
+					      	<th>Delete</th>
 					      </tr>
 					    </thead>
 					    <tbody>
 					    @foreach ($users as $user)
 					      <tr>
 					        <td>{{$user->name}}</td>
-					        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <a href="{{route('user.delete',['user_id' => $user->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
-					      </tr>
+					        <td><a href="{{route('edituser',['user_id' => $user->id])}}"><button type="button" class="btn btn-sm btn-warning ">Edit</button></a>
+					        </td>
+					        <td>
+					         <a href="{{route('user.delete',['user_id' => $user->id])}}"><button  type="button" class="btn btn-sm btn-danger ">Delete</button></a></td>
+					      	</tr>
 					    	@endforeach
 					    </tbody>
 					  </table>

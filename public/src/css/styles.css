@@ -296,6 +296,7 @@ a.bg-danger:hover {
 	border: 0;
 }
 
+
 .panel-heading {
 	font-size: 18px;
 	font-weight: 300;
@@ -304,6 +305,17 @@ a.bg-danger:hover {
 	line-height: 45px;
 }
 
+.panel-heading-view{
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 0.025em;
+	height: 45px;
+	line-height: 35px;
+}
+panel-body-view p{
+	font-size: 18px;
+	
+}
 .panel-default .panel-heading {
 	background: #fff;
 	border-bottom: 1px solid #eee;
