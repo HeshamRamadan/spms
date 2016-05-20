@@ -183,7 +183,7 @@ Route::group(['middleware' => ['admin-g']], function () {
 			'uses'=>'AdminController@getEditTask',
 			'as'=>'edittask',
 	]);
-	Route::get('/dashboard/deletetask',[
+	Route::get('/dashboard/deletetask/{task_id}',[
 			'uses'=>'AdminController@getDeleteTask',
 			'as'=>'deletetask',
 	]);

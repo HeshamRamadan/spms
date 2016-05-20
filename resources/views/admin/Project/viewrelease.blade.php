@@ -104,7 +104,7 @@
 						        <td>{{$task->task_number}}</td>
 						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">View</button></a> </td>
 						       	 <td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Edit</button></a></td> 
-						       	<td><a href="#"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
+						       	<td><a href="{{route('deletetask',['task_id' => $task->id])}}"><button  type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
 						      </tr>
 						      @endforeach
 						    </tbody>

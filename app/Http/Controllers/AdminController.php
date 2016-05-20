@@ -285,9 +285,15 @@ class AdminController extends Controller
 			return view('admin/Task/edittask');
 		}
 		
-		public function getDeleteTask()
+		public function getDeleteTask($task_id)
 		{
-			return view('admin/Task/deletetask');
+		
+			$task = Task::find($task_id);
+			$release_id = $task->release_id;
+			$task->delete();
+		
+			return redirect()->route('viewrelease' , ['release_id' =>  $release_id])->with(['message' => 'Task Deleted Successfully' ] );
+	
 		}
 		public function getAddIssue()
 		{
